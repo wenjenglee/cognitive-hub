@@ -29,6 +29,8 @@ Cognitive Hub 是一個**設計模式（design pattern），**它可以用任何
 
 ### 三層記憶架構
 
+![三層記憶架構](docs/architecture.svg)
+
 ```
 Layer 1 — 用戶偏好（每次對話自動載入）
 ├── 核心身分、溝通規則、路由指令

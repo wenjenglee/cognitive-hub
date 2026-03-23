@@ -29,6 +29,8 @@ Cognitive Hub is a **design pattern**, not a product. It can be implemented with
 
 ### 3-Layer Memory Architecture
 
+![3-Layer Memory Architecture](docs/architecture.svg)
+
 ```
 Layer 1 — User Preferences (always loaded)
 ├── Core identity, communication rules, routing instructions
@@ -189,6 +191,6 @@ You are free to share and adapt this material for any purpose, including commerc
 
 ## Author
 
-**Wen-Jeng Lee, MD**
+**Wen-Jeng Lee, MD, PhD**
 
 Department of Medical Imaging, National Taiwan University Hospital
