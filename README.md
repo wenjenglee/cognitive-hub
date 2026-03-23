@@ -1,7 +1,5 @@
 # Cognitive Hub
 
-[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-
 **A memory-first design pattern for AI agents in multi-role knowledge work.**
 
 Externalized living memory that is human-readable, AI-readable, and collaboratively editable.
@@ -16,7 +14,7 @@ Knowledge workers — physicians, researchers, managers, lawyers, engineers — 
 
 You make a decision as a researcher in the morning, switch to administration in the afternoon, and return to that research context three days later — but you've already forgotten which options you considered, what you ruled out, and why. This isn't a memory problem. It's a fundamental cognitive limitation: humans can only maintain a few active working contexts, and switching roles erases the previous one.
 
-Recent developments in AI agents have focused on **autonomous task execution** — agents that write emails, manage calendars, run shell commands, and orchestrate multi-step workflows on your behalf. This solves "not enough hands." But for multi-role knowledge workers, the real bottleneck is **not enough brain**:
+Current AI tools focus on **doing things for you** — writing emails, managing calendars, running automations. That solves "not enough hands." But for multi-role knowledge workers, the real bottleneck is **not enough brain**:
 
 - Cross-role context loss when switching between responsibilities
 - Lessons and decisions not systematically accumulated — the same mistakes recur
@@ -31,23 +29,18 @@ Cognitive Hub is a **design pattern**, not a product. It can be implemented with
 
 ### 3-Layer Memory Architecture
 
-![3-Layer Memory Architecture](docs/architecture.svg)
-
-```text
+```
 Layer 1 — User Preferences (always loaded)
-├── Written into the LLM's system prompt or user preferences
 ├── Core identity, communication rules, routing instructions
 ├── Minimal footprint — loaded at every conversation start
 └── Tells the AI: "go read my Hub for context"
 
 Layer 2 — Knowledge Hub (loaded on demand)
-├── Suggested sections (adapt to your own needs):
-│   ├── Rules      — decision logic and principles
-│   ├── Projects   — active work with status and context
-│   ├── References — facts, contacts, task sources
-│   ├── SOP        — step-by-step procedures for recurring tasks
-│   └── Prompts    — reusable prompt templates
-└── Structure is flexible — add, rename, or reorganize as your work evolves
+├── Rules      — immutable decision logic and principles
+├── Projects   — active work with status and context
+├── References — facts, contacts, task sources
+├── SOP        — step-by-step procedures for recurring tasks
+└── Prompts    — reusable prompt templates
 
 Layer 3 — Version-Controlled Backup (optional)
 ├── Plain text (.md) mirror of the Hub
@@ -55,7 +48,7 @@ Layer 3 — Version-Controlled Backup (optional)
 └── Git history provides change tracking
 ```
 
-**How it works:** Layer 1 is written into the LLM's system prompt (or equivalent configuration such as user preferences or custom instructions), so it loads automatically at every conversation start. Layer 1 contains a brief instruction telling the AI to check the Hub for context. The AI then fetches only the Layer 2 pages relevant to the current task via a bridging layer (e.g., MCP or API) and responds with full context. Layer 3 is a safety net, not part of the active workflow.
+**How it works:** AI loads Layer 1 automatically → reads the instruction to check the Hub → fetches only the Layer 2 pages relevant to the current task → responds with full context. Layer 3 is a safety net, not part of the active workflow.
 
 ### Key Design Decisions
 
@@ -65,7 +58,7 @@ Layer 3 — Version-Controlled Backup (optional)
 
 **Human-AI co-maintained.** The Hub is not a static document uploaded once. Both the human and the AI read and write to it. The AI might suggest updating a rule after a new decision; the human reviews and approves. Over time, the Hub grows into a living record of how you work.
 
-**Tool-agnostic.** The design pattern — layered memory, explicit rules, async relay — works on any platform. If you switch from Notion to Obsidian, or from Claude to another LLM, your accumulated knowledge moves with you.
+**Tool-agnostic.** The design pattern — layered memory, explicit rules, async relay, harvest mindset — works on any platform. If you switch from Notion to Obsidian, or from Claude to another LLM, your accumulated knowledge moves with you.
 
 ## Key Capabilities
 
@@ -79,17 +72,21 @@ Instead of hoping the AI "gets" your preferences, you write explicit rules: comm
 
 ### Async Relay Workflow
 
-Because the Hub's memory is externalized — stored outside any single AI session — it is naturally accessible to both the human and the AI. This same property extends to teams: when knowledge lives in a shared external platform, multiple team members can read and write to the same knowledge base alongside the AI. The Async Relay Workflow leverages this: the lead ideates with AI → creates a shared knowledge page (goals, approach, checklist, lessons learned) → hands off to team members who continue independently with their own AI sessions, all grounded in the same shared context. No meetings required to maintain alignment.
+A collaboration pattern for small teams: the lead ideates with AI → creates a shared knowledge page (goals, approach, checklist, lessons learned) → hands off to team members who continue independently. No meetings required to maintain alignment.
 
-### Extensible Integration
+### Harvest Mindset
 
-With an externalized memory platform at the center, connecting additional services becomes straightforward. Through bridging layers (MCP, API), the Hub can integrate with email, calendars, voice memo transcription, task management, and other productivity tools. The AI doesn't just access these services mechanically — it applies your preferences, priorities, and decision logic stored in the Hub when interacting with them.
+When building a new tool or pipeline, the AI proactively evaluates publication potential. If there's a publishable angle: *"This can be harvested — here's what to add."* If it's purely administrative: *"Stop at MVP."* This prevents valuable work from going undocumented.
+
+### Integrated Personal Productivity
+
+Email triage, calendar management, voice memo processing, and task routing — all informed by your preferences, priorities, and existing commitments stored in the Hub.
 
 ## Illustrative Context
 
 The reference implementation was developed by a department chief at a teaching hospital who simultaneously manages clinical interpretation, academic research, departmental administration, team coordination, teaching, and technology development. These six roles generate a constant stream of fragmented decisions, rules, and pending items across different tools and timeframes.
 
-Rather than building separate systems for each role, Cognitive Hub provides a single knowledge architecture where all roles share the same memory layer. The AI can surface relevant context from any role at any time — a research decision informs an administrative memo, a clinical observation triggers a publication-readiness assessment, a team delegation page captures lessons that prevent future mistakes.
+Rather than building separate systems for each role, Cognitive Hub provides a single knowledge architecture where all roles share the same memory layer. The AI can surface relevant context from any role at any time — a research decision informs an administrative memo, a clinical observation triggers a "this could be published" suggestion, a team delegation page captures lessons that prevent future mistakes.
 
 This context is illustrative, not prescriptive. The architecture applies to any knowledge worker juggling multiple responsibilities.
 
@@ -104,7 +101,7 @@ Methods like Zettelkasten, PARA, and Building a Second Brain focus on how *human
 Popular agent frameworks prioritize autonomous task execution — the AI runs shell commands, sends messages, manages files. Memory is a byproduct (conversation history, skill directories). Cognitive Hub inverts this: structured memory is the foundation, and actions are grounded in it. Rules, decision history, team roles, and research strategies are explicit and editable — not implicit in chat logs.
 
 | Dimension | Action-First Agents | Cognitive Hub |
-|---|---|---|
+|-----------|-------------------|---------------|
 | Core focus | Autonomous task execution | Knowledge-augmented decision support |
 | Memory model | Implicit (conversation history) | Explicit (layered, co-maintained) |
 | Rule system | Skills (task-oriented) | Rules / SOP / Protocols (decision-oriented) |
@@ -139,10 +136,10 @@ You need two things:
 
 Setup takes under an hour:
 
-1. Create your Hub page with sub-sections (e.g., Rules, Projects, References, SOP — or whatever categories fit your work)
+1. Create your Hub page with sub-sections: Rules, Projects, References, SOP
 2. Write 5–10 core rules (communication style, decision principles, what the AI should never do)
 3. Add basic references (who you are, what roles you hold, your tools and preferences)
-4. Write a short Layer 1 instruction in your LLM's system prompt or user preferences, telling the AI to check the Hub at conversation start
+4. Configure your LLM to read the Hub at conversation start
 5. Test with: *"What do you know about my current projects?"*
 
 For detailed step-by-step guides:
@@ -162,10 +159,12 @@ These principles informed the architecture and are documented here for reproduci
 
 ## Limitations
 
-- **Single-team validation.** This architecture has been developed and tested by one team in one institution. Broader adoption across different domains and team sizes would further demonstrate its generalizability.
-- **No formal user study.** Usage outcomes are based on the author's experience. Formal evaluation with structured metrics is a natural next step for future research.
-- **Platform-dependent bridging.** The bridging layer (e.g., MCP) depends on specific platform support. The ecosystem is maturing rapidly, and more LLM + knowledge platform combinations are gaining bridge support over time.
-- **Maintenance as a feature.** The Hub requires active upkeep — but this is by design. The act of maintaining and reviewing the Hub is itself a form of reflective practice that reinforces knowledge accumulation.
+- **Single-team validation.** This architecture has been developed and tested by one team in one institution. Broader validation across different domains and team sizes is needed.
+- **No formal user study.** Usage outcomes are based on the author's experience, not controlled evaluation.
+- **Platform-dependent bridging.** While the design pattern is tool-agnostic, the bridging layer (e.g., MCP) depends on specific platform support. Not all LLM + knowledge platform combinations have mature bridges yet.
+- **Maintenance overhead.** The Hub requires active upkeep. An outdated Hub is worse than no Hub — the AI will act on stale context with confidence.
+- **Privacy considerations.** Connecting an LLM to your knowledge base means the LLM provider processes that content. Users must evaluate their comfort level and institutional policies.
+- **Not a replacement for institutional systems.** Cognitive Hub is a personal/small-team productivity architecture, not an enterprise knowledge management system.
 
 ## Citation
 
@@ -184,13 +183,12 @@ See `CITATION.cff` for machine-readable citation metadata.
 
 ## License
 
-This work is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+This work is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 You are free to share and adapt this material for any purpose, including commercial, as long as you give appropriate credit.
 
 ## Author
 
-**Wen-Jeng Lee, MD, PhD**
-Department of Medical Imaging, National Taiwan University Hospital
+**Wen-Jeng Lee, MD**
 
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--3267--4811-green?logo=orcid)](https://orcid.org/0000-0003-3267-4811)
+Department of Medical Imaging, National Taiwan University Hospital
