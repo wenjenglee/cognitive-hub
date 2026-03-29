@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use or reference this work, please cite it as below."
-title: "Cognitive Hub: A Memory-First Design Pattern for AI Agents in Multi-Role Knowledge Work"
+title: "Cognitive Hub: Externalized Living Memory for AI Agents in Multi-Role Knowledge Work"
 authors:
   - family-names: "Lee"
     given-names: "Wen-Jeng"
@@ -20,9 +20,10 @@ keywords:
   - knowledge-work
   - design-pattern
 abstract: >-
-  A memory-first design pattern for AI agents in multi-role knowledge work.
-  Externalized living memory that is human-readable, AI-readable, and
-  collaboratively editable. Provides a layered architecture (User Preferences,
-  Knowledge Hub, Version-Controlled Backup) that enables AI to maintain
-  cross-role decision context, follow explicit rules, and co-maintain a
-  growing knowledge base with the user and their team.
+  Externalized living memory for AI agents in multi-role knowledge work.
+  A structured knowledge base that is human-readable, AI-readable, and
+  collaboratively editable. Provides a layered architecture (Knowledge Layer,
+  Bridge Layer, Computation Layer) with a routing table for scalable context
+  loading and a governance hierarchy for sustainable maintenance, enabling AI
+  to maintain cross-role decision context, follow explicit rules, and
+  co-maintain a growing knowledge base with the user and their team.
