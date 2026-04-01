@@ -1,6 +1,6 @@
 # Cognitive Hub
 
-**Externalized living memory for AI agents in multi-role knowledge work.**
+**Externalized living memory for AI agents in knowledge-intensive professional work.**
 
 A structured knowledge base — human-readable, AI-readable, and collaboratively editable — that gives AI agents persistent, auditable context.
 
@@ -10,14 +10,14 @@ A structured knowledge base — human-readable, AI-readable, and collaboratively
 
 ## The Problem
 
-Knowledge workers — physicians, researchers, managers — juggle multiple roles simultaneously. The bottleneck is not any single task but the **cumulative erosion of decision context** across roles and over time.
+Clinicians and knowledge workers accumulate substantial domain knowledge over time. The bottleneck is not any single task but the **cumulative erosion of decision context** — across tasks, over time, and between collaborators.
 
-You make a decision as a researcher in the morning, switch to administration in the afternoon, and return three days later — but you've forgotten which alternatives you weighed and why. This is not a personal failing; it is a structural constraint of finite working memory.
+A week after a committee decision, you may no longer recall which alternatives were weighed or why one was favored. This is not a personal failing; it is a structural constraint of finite working memory: context that is not externalized will be lost.
 
-Current AI tools focus on **doing things for you** (writing, scheduling, automating). That solves "not enough hands." But for multi-role knowledge workers, the real bottleneck is **not enough brain**:
+Current AI tools focus on **doing things for you** (writing, scheduling, automating). That solves "not enough hands." But for professionals who accumulate deep domain knowledge, the real bottleneck is **not enough brain**:
 
-- Context lost when switching between roles
-- Decisions and rationale not systematically recorded — the same deliberation repeats
+- Decision context erodes over time — the same deliberation repeats
+- Past decisions and rationale are not systematically recorded
 - Team members lack shared decision memory
 - AI starts from zero every conversation — powerful but amnesic
 
@@ -109,9 +109,9 @@ Five principles guide construction and maintenance:
 
 ## Key Capabilities
 
-### Cross-Role Decision Memory
+### Persistent Decision Memory
 
-When you switch from researcher to administrator to clinician, the AI already knows what you decided in each role, why, and what's pending.
+When you return to a project days or weeks later, the AI already knows what you decided, why, and what's pending — without re-briefing.
 
 ### Rule-Driven Behavior
 
@@ -148,6 +148,7 @@ The `templates/` directory contains de-identified example templates:
 - **`rules-template.md`** — A starter Rules page showing how to structure decision logic for AI consumption
 - **`project-template.md`** — An Async Relay Workflow project page with goals, approach, role assignments, checklist, and lessons learned
 - **`sop-template.md`** — A Standard Operating Procedure template for recurring workflows
+- **`sync-notion-backup.py`** — A Python script that exports Hub pages from Notion to local markdown files, providing offline access and vendor-neutral portability
 
 These are starting points. Adapt freely to your own roles, tools, and working style.
 
@@ -181,8 +182,8 @@ Setup takes under an hour:
 ```bibtex
 @misc{lee2026cognitivehub,
   author       = {Lee, Wen-Jeng},
-  title        = {Cognitive Hub: Externalized Living Memory for
-                  AI Agents in Multi-Role Knowledge Work},
+  title        = {Externalized Living Memory: Structuring Clinical
+                  Knowledge for the Age of AI Agents},
   year         = {2026},
   publisher    = {GitHub},
   url          = {https://github.com/wenjenglee/cognitive-hub}

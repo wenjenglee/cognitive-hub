@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use or reference this work, please cite it as below."
-title: "Cognitive Hub: Externalized Living Memory for AI Agents in Multi-Role Knowledge Work"
+title: "Externalized Living Memory: Structuring Clinical Knowledge for the Age of AI Agents"
 authors:
   - family-names: "Lee"
     given-names: "Wen-Jeng"
@@ -16,11 +16,11 @@ keywords:
   - ai-agents
   - knowledge-management
   - externalized-memory
-  - multi-role
-  - knowledge-work
+  - clinical-knowledge
+  - cognitive-overload
   - design-pattern
 abstract: >-
-  Externalized living memory for AI agents in multi-role knowledge work.
+  Externalized living memory for AI agents in knowledge-intensive professional work.
   A structured knowledge base that is human-readable, AI-readable, and
   collaboratively editable. Provides a layered architecture (Knowledge Layer,
   Bridge Layer, Computation Layer) with a routing table for scalable context
