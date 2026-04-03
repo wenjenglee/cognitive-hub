@@ -134,12 +134,12 @@ A working pattern that emerged naturally: settle the substance in the hub first,
 | Memory model | Human-designed | Agent-managed | Agent-managed | Static upload | Static documents | Human-designed |
 | AI accessibility | None | Full | Full | Read-only | Read-only | Read-write |
 | Dynamism | Manual update | Auto-logged | Auto-summarized | Static | Static | Living (curated) |
-| Platform independence | Portable | Locked | Locked | Locked | Locked | Portable |
-| Controllability | Full | Limited | Partial* | Partial | Limited | Full |
+| Platform independence | Portable | Varies | Locked | Locked | Locked | Portable |
+| Controllability | Full | Varies | Partial* | Partial | Limited | Full |
 | Setup requirement | Manual | Engineering | None | Low | Engineering | No-code |
-| Team collaboration | Limited | Emerging | None | None | Org-wide | Multi-user |
+| Team collaboration | Limited | Emerging | None | None | Organization-wide | Multi-user |
 
-*Recent LLM memory features allow users to view, edit, and delete individual memories. However, these systems lack structural organization (no hierarchy, routing, or governance) and remain platform-locked.
+*Recent LLM memory features (eg, Claude Memory) allow users to view, edit, and delete individual memories, warranting "Partial" rather than "Limited." However, these systems lack structural organization (no hierarchy, routing, or governance) and remain platform-locked. Table reflects production capabilities as of early 2026; research prototypes may differ.
 
 ## Templates
 
