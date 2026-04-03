@@ -16,8 +16,8 @@ keywords:
   - ai-agents
   - knowledge-management
   - externalized-memory
-  - clinical-knowledge
-  - cognitive-overload
+  - multi-role
+  - knowledge-work
   - design-pattern
 abstract: >-
   Externalized living memory for AI agents in knowledge-intensive professional work.

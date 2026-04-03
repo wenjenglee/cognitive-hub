@@ -131,7 +131,7 @@ A working pattern that emerged naturally: settle the substance in the hub first,
 
 | Dimension | PKM | AI Agents | LLM Memory | Custom GPTs | Institutional RAG | Living Memory |
 |---|---|---|---|---|---|---|
-| Memory model | Human-designed | Agent-managed | Agent-managed | Static upload | Static corpus | Human-designed |
+| Memory model | Human-designed | Agent-managed | Agent-managed | Static upload | Static documents | Human-designed |
 | AI accessibility | None | Full | Full | Read-only | Read-only | Read-write |
 | Dynamism | Manual update | Auto-logged | Auto-summarized | Static | Static | Living (curated) |
 | Platform independence | Portable | Locked | Locked | Locked | Locked | Portable |
@@ -177,16 +177,37 @@ Setup takes under an hour:
 - **Top-layer inflation risk.** Without promotion discipline, the routing layer grows until it degrades accuracy.
 - **Not a replacement for institutional systems.** This is a personal/small-team productivity architecture.
 
+## 📄 Paper
+
+The design pattern and clinical case study are described in a peer-reviewed manuscript currently under review:
+
+> Lee WJ, Wu CF. Externalized Living Memory: Structuring Clinical Knowledge for the Age of AI Agents. *J Med Internet Res*. Preprint. doi:[10.2196/preprints.96809](https://doi.org/10.2196/preprints.96809)
+
+The paper uses health care as its case study, but the design pattern is domain-agnostic and applies to any knowledge worker managing multiple roles or accumulating substantial domain knowledge.
+
+## Relationship to Other Memory Systems
+
+Projects like [OpenClaw](https://github.com/anthropics/openclaw) demonstrate that AI agents need persistent memory. Cognitive Hub explores the same problem from a different angle: instead of a full-stack agent platform with Docker containers, boot files, and scheduled tasks, it uses **existing no-code tools** (a note-taking app + an LLM with bidirectional access) to achieve persistent, auditable context.
+
+The two approaches are complementary, not competing:
+
+- **OpenClaw** excels at always-on execution: scheduling, mobile messaging, 24/7 autonomous tasks
+- **Cognitive Hub** excels at deep context: structured decision memory, cross-role knowledge, on-demand retrieval without context window limits
+
+You can use either independently, or both together — Hub as the thinking layer, an agent platform as the execution layer. Choose the tools that fit your workflow.
+
 ## Citation
 
 ```bibtex
-@misc{lee2026cognitivehub,
-  author       = {Lee, Wen-Jeng},
+@article{lee2026externalized,
+  author       = {Lee, Wen-Jeng and Wu, Chiung-Fang},
   title        = {Externalized Living Memory: Structuring Clinical
                   Knowledge for the Age of AI Agents},
+  journal      = {Journal of Medical Internet Research},
   year         = {2026},
-  publisher    = {GitHub},
-  url          = {https://github.com/wenjenglee/cognitive-hub}
+  note         = {Preprint},
+  doi          = {10.2196/preprints.96809},
+  url          = {https://doi.org/10.2196/preprints.96809}
 }
 ```
 

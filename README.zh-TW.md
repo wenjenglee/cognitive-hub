@@ -130,7 +130,7 @@ Cognitive Hub 是一個**設計模式（design pattern）**，不是產品。它
 
 | 維度 | PKM | AI Agents | LLM 記憶 | Custom GPTs | 機構 RAG | 活記憶 |
 |---|---|---|---|---|---|---|
-| 記憶模型 | 人設計 | Agent 管理 | Agent 管理 | 靜態上傳 | 靜態語料庫 | 人設計 |
+| 記憶模型 | 人設計 | Agent 管理 | Agent 管理 | 靜態上傳 | 靜態文件 | 人設計 |
 | AI 存取 | 無 | 完整 | 完整 | 唯讀 | 唯讀 | 讀寫 |
 | 動態性 | 手動更新 | 自動記錄 | 自動摘要 | 靜態 | 靜態 | 活的（策展式） |
 | 平台獨立性 | 可攜帶 | 鎖定 | 鎖定 | 鎖定 | 鎖定 | 可攜帶 |
@@ -176,16 +176,37 @@ Cognitive Hub 是一個**設計模式（design pattern）**，不是產品。它
 - **頂層膨脹風險。** 沒有提升紀律，路由層會膨脹直到降低準確度。
 - **不替代機構級系統。** 這是個人/團隊的生產力架構。
 
+## 📄 論文
+
+設計模式與臨床案例研究已撰寫為同儕審查論文，目前審稿中：
+
+> Lee WJ, Wu CF. Externalized Living Memory: Structuring Clinical Knowledge for the Age of AI Agents. *J Med Internet Res*. Preprint. doi:[10.2196/preprints.96809](https://doi.org/10.2196/preprints.96809)
+
+論文以醫療為案例，但設計模式不限特定領域，適用於任何管理多重角色或累積大量領域知識的知識工作者。
+
+## 與其他記憶系統的關係
+
+[OpenClaw](https://github.com/anthropics/openclaw) 等專案證明了 AI 代理需要持久記憶。Cognitive Hub 從不同角度探索同一個問題：不需要 Docker 容器、boot files 和排程任務的全端代理平台，而是用**現有的 no-code 工具**（筆記平台 + 具備雙向存取的 LLM）來達成持久、可稽核的脈絡。
+
+兩種做法互補，不是競爭：
+
+- **OpenClaw** 擅長持續執行：排程、行動通訊、24/7 自主任務
+- **Cognitive Hub** 擅長深度脈絡：結構化決策記憶、跨角色知識、按需檢索且不受 context window 限制
+
+你可以單獨使用任何一種，也可以兩者並用——Hub 作為思考層，代理平台作為執行層。選擇適合你工作流程的工具。
+
 ## 引用
 
 ```bibtex
-@misc{lee2026cognitivehub,
-  author       = {Lee, Wen-Jeng},
+@article{lee2026externalized,
+  author       = {Lee, Wen-Jeng and Wu, Chiung-Fang},
   title        = {Externalized Living Memory: Structuring Clinical
                   Knowledge for the Age of AI Agents},
+  journal      = {Journal of Medical Internet Research},
   year         = {2026},
-  publisher    = {GitHub},
-  url          = {https://github.com/wenjenglee/cognitive-hub}
+  note         = {Preprint},
+  doi          = {10.2196/preprints.96809},
+  url          = {https://doi.org/10.2196/preprints.96809}
 }
 ```
 
